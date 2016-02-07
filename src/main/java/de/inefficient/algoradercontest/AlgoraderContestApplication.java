@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Created by samuel on 07.02.16.
+ * @author samuel
+ * @version 0.1
  */
 @SpringBootApplication
 @ComponentScan("de.inefficient.algoradercontest")
