@@ -10,12 +10,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @version 0.1
  */
 @Document(collection = "user")
-public class User {
+public class ACUser {
     @Id
     private String id;
 
     @Indexed(unique = true)
-    private String name;
+    private String username;
     private String password;
     private String displayName;
     private String email;
@@ -28,12 +28,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

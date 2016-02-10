@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:replace="template/assets :: meta"></th:block>
+    <title>Spoozer - Anmeldung</title>
+    <th:block th:replace="template/assets :: favicon"></th:block>
+    <th:block th:replace="template/assets :: css-lib"></th:block>
+    <th:block th:replace="template/assets :: css-login"></th:block>
+    <th:block th:replace="template/assets :: js-lib"></th:block>
+</head>
+
+<body>
+    <th:block th:replace="template/global :: require-js"></th:block>
+    <th:block th:replace="template/global :: heading"></th:block>
+    <div class="row">
+        <div class="large-6 medium-8 small-11 large-centered small-centered columns">
+            <form th:action="@{/login}" class="form-login" method="post">
+                <fieldset>
+                    <h3>Bitte anmelden</h3>
+                    <div th:if="${param.error}" class="alert-box alert">
+                        Login fehlgeschlagen!
+                    </div>
+                    <div th:if="${param.logout}" class="alert-box info">
+                        Sie wurden abgemeldet.
+                    </div>
+                    <div th:if="${param.expired}" class="alert-box warning">
+                        Sie wurden aufgrund von Inaktivität abgemeldet!
+                    </div>
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" required="required" autofocus="autofocus" />
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" required="required" />
+
+                    <div class="clearfix">
+                        <button type="submit" class="button left large-5 medium-5 small-12 spoozer"><span class="fa fa-sign-in fa-fw"></span> Anmelden</button>
+                        <a th:href="@{/register}" class="button secondary right large-5 medium-5 small-12"><span class="fa fa-user-plus fa-fw"></span> Registrieren</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+</html>

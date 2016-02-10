@@ -2,7 +2,7 @@ package de.inefficient.algoradercontest.config;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
-import de.inefficient.algoradercontest.persistence.repository.UserRepository;
+import de.inefficient.algoradercontest.persistence.repository.ACUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,12 +20,12 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
         basePackages = "de.inefficient.algoradercontest.persistence.repository",
         includeFilters = @ComponentScan.Filter(
                 value = {
-                        UserRepository.class
+                        ACUserRepository.class
                 },
                 type = FilterType.ASSIGNABLE_TYPE
         )
 )
-public class MongoConfig {
+public class ACMongoConfig {
     @Bean
     public MongoTemplate mongoTemplate(Mongo mongo) {
         return new MongoTemplate(mongo, "algoradercontest_v0");

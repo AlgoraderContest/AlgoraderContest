@@ -1,6 +1,6 @@
 package de.inefficient.algoradercontest.persistence.repository;
 
-import de.inefficient.algoradercontest.persistence.domain.User;
+import de.inefficient.algoradercontest.persistence.domain.ACUser;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -8,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  * @author samuel
  * @version 0.1
  */
-public interface UserRepository extends CrudRepository<User, String>{
+public interface ACUserRepository extends CrudRepository<ACUser, String> {
+    ACUser findByUsernameIgnoreCase(String username);
 }

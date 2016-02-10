@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 0.1
  */
 @Controller
-public class AlgoraderContestController {
+public class ACController {
     @RequestMapping("/")
     public String getApplicationIndex() {
         return "index";
