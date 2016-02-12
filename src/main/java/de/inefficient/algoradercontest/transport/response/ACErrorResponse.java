@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * Created by samuel on 10.02.16.
+ *
  * @author samuel
  * @version 0.1
  */
@@ -57,5 +58,9 @@ public class ACErrorResponse extends ACResponse {
 
     public String get(String field) {
         return errors.get(field);
+    }
+
+    public boolean hasErrors() {
+        return !errors.isEmpty();
     }
 }

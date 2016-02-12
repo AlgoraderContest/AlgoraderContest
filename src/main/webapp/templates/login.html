@@ -7,7 +7,7 @@
     <th:block th:replace="template/assets :: favicon"></th:block>
     <th:block th:replace="template/assets :: css-lib"></th:block>
     <th:block th:replace="template/assets :: css-login"></th:block>
-    <th:block th:replace="template/assets :: js-lib"></th:block>
+    <th:block th:replace="template/assets :: js-login"></th:block>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <fieldset>
                 <h3>Bitte anmelden</h3>
                 <div data-abide-error="" th:if="${param.error}" class="alert callout">
-                    <span class="fa fa-exclamation-triangle"/> Login fehlgeschlagen!
+                    <span class="fa fa-exclamation-triangle"></span> Login fehlgeschlagen!
                 </div>
                 <label for="username">Benutzername</label>
                 <input type="text" id="username" name="username" required="required" autofocus="autofocus"/>

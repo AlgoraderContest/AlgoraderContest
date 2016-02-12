@@ -7,44 +7,63 @@
     <th:block th:replace="template/assets :: favicon"></th:block>
     <th:block th:replace="template/assets :: css-lib"></th:block>
     <th:block th:replace="template/assets :: css-login"></th:block>
-    <th:block th:replace="template/assets :: js-lib"></th:block>
+    <th:block th:replace="template/assets :: js-login"></th:block>
 </head>
 
 <body>
-    <th:block th:replace="template/global :: require-js"></th:block>
-    <th:block th:replace="template/global :: heading"></th:block>
-    <div class="row">
-        <div class="large-6 medium-8 small-11 large-centered small-centered columns">
-            <form th:action="@{/register}" class="form-login" method="post">
-                <fieldset>
-                    <h3>Bitte registrieren</h3>
-                    <label for="username" th:class="${errors.have('username')} ? error">Benutzername</label>
-                    <input type="text" id="username" name="username" th:class="${errors.have('username')} ? error" required="required" autofocus="autofocus" />
-                    <small class="error" th:if="${errors.have('username')}" th:text="${errors.get('username')}"></small>
+<th:block th:replace="template/global :: require-js"></th:block>
+<th:block th:replace="template/global :: heading"></th:block>
+<div class="row">
+    <div class="large-5 medium-7 small-11 large-centered small-centered columns">
+        <form th:action="@{/register}" class="form-login" method="post">
+            <fieldset>
+                <h3>Bitte registrieren</h3>
+                <div data-abide-error="" th:if="${errors.hasErrors()}" class="alert callout">
+                    <span class="fa fa-exclamation-triangle"></span> Registrieren fehlgeschlagen!
+                </div>
 
-                    <label for="email" th:class="${errors.have('email')} ? error">E-Mail</label>
-                    <input type="email" id="email" name="email" th:class="${errors.have('email')} ? error" required="required" />
-                    <small class="error" th:if="${errors.have('email')}" th:text="${errors.get('email')}"></small>
+                <label th:class="${errors.have('username')} ? 'is-invalid-label'">Benutzername
+                    <input type="text" name="username" th:class="${errors.have('username')} ? 'is-invalid-input'"
+                           required="required" autofocus="autofocus"/>
+                    <small class="form-error is-visible" th:if="${errors.have('username')}"
+                           th:text="${errors.get('username')}"></small>
+                </label>
 
-                    <label for="password" th:class="${errors.have('password')} ? error">Passwort</label>
-                    <input type="password" id="password" name="password" th:class="${errors.have('password')} ? error" required="required" />
-                    <small class="error" th:if="${errors.have('password')}" th:text="${errors.get('password')}"></small>
+                <label th:class="${errors.have('email')} ? 'is-invalid-label'">E-Mail
+                    <input type="email" name="email" th:class="${errors.have('email')} ? 'is-invalid-input'"
+                           required="required"/>
+                    <small class="form-error is-visible" th:if="${errors.have('email')}"
+                           th:text="${errors.get('email')}"></small>
+                </label>
 
-                    <label for="password2" th:class="${errors.have('password2')} ? error">Passwort wiederholden</label>
-                    <input type="password" id="password2" name="password2" th:class="${errors.have('password2')} ? error" required="required" />
-                    <small class="error" th:if="${errors.have('password2')}" th:text="${errors.get('password2')}"></small>
+                <label th:class="${errors.have('password')} ? 'is-invalid-label'">Passwort
+                    <input type="password" name="password"
+                           th:class="${errors.have('password')} ? 'is-invalid-input'" required="required"/>
+                    <small class="form-error is-visible" th:if="${errors.have('password')}"
+                           th:text="${errors.get('password')}"></small>
+                </label>
 
-                    <div class="clearfix">
-                        <button type="submit" class="button left large-5 medium-5 small-12"><span class="fa fa-sign-in fa-fw"></span> Registrieren</button>
-                        <a th:href="@{/}" class="button secondary right large-4 medium-4 small-12"><span class="fa fa-chevron-left fa-fw"></span> Zurück</a>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+                <label th:class="${errors.have('password2')} ? 'is-invalid-label'">Passwort wiederholden
+                    <input type="password" name="password2"
+                           th:class="${errors.have('password2')} ? 'is-invalid-input'" required="required"/>
+                    <small class="form-error is-visible" th:if="${errors.have('password2')}"
+                           th:text="${errors.get('password2')}"></small>
+                </label>
+
+                <div class="clearfix">
+                    <button type="submit" class="button float-left large-5 medium-5 small-12"><span
+                            class="fa fa-sign-in fa-fw"></span> Registrieren
+                    </button>
+                    <a th:href="@{/}" class="button secondary float-right large-4 medium-4 small-12"><span
+                            class="fa fa-chevron-left fa-fw"></span> Zurück</a>
+                </div>
+            </fieldset>
+        </form>
     </div>
-    <script>
-        $(document).foundation();
-    </script>
+</div>
+<script>
+    $(document).foundation();
+</script>
 </body>
 
 </html>
