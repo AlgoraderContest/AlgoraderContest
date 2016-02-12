@@ -1,0 +1,13 @@
+.form-login {
+    margin-top: 10%;
+}
+
+.form-login fieldset {
+    background: #fff;
+    border: 1px solid #aaa;
+    padding: 20px;
+}
+
+.form-login .button {
+    margin: 0;
+}

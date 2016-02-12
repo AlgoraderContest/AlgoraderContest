@@ -11,38 +11,35 @@
 </head>
 
 <body>
-    <th:block th:replace="template/global :: require-js"></th:block>
-    <th:block th:replace="template/global :: heading"></th:block>
-    <div class="row">
-        <div class="large-6 medium-8 small-11 large-centered small-centered columns">
-            <form th:action="@{/login}" class="form-login" method="post">
-                <fieldset>
-                    <h3>Bitte anmelden</h3>
-                    <div th:if="${param.error}" class="alert-box alert">
-                        Login fehlgeschlagen!
-                    </div>
-                    <div th:if="${param.logout}" class="alert-box info">
-                        Sie wurden abgemeldet.
-                    </div>
-                    <div th:if="${param.expired}" class="alert-box warning">
-                        Sie wurden aufgrund von Inaktivität abgemeldet!
-                    </div>
-                    <label for="username">Benutzername</label>
-                    <input type="text" id="username" name="username" required="required" autofocus="autofocus" />
-                    <label for="password">Passwort</label>
-                    <input type="password" id="password" name="password" required="required" />
+<th:block th:replace="template/global :: require-js"></th:block>
+<th:block th:replace="template/global :: heading"></th:block>
+<div class="row">
+    <div class="large-5 medium-7 small-11 large-centered small-centered columns">
+        <form th:action="@{/login}" class="form-login" method="post">
+            <fieldset>
+                <h3>Bitte anmelden</h3>
+                <div data-abide-error="" th:if="${param.error}" class="alert callout">
+                    <span class="fa fa-exclamation-triangle"/> Login fehlgeschlagen!
+                </div>
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required="required" autofocus="autofocus"/>
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password" required="required"/>
 
-                    <div class="clearfix">
-                        <button type="submit" class="button left large-5 medium-5 small-12 spoozer"><span class="fa fa-sign-in fa-fw"></span> Anmelden</button>
-                        <a th:href="@{/register}" class="button secondary right large-5 medium-5 small-12"><span class="fa fa-user-plus fa-fw"></span> Registrieren</a>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+                <div class="clearfix">
+                    <button type="submit" class="button float-left large-5 medium-5 small-12 spoozer"><span
+                            class="fa fa-sign-in fa-fw"></span> Anmelden
+                    </button>
+                    <a th:href="@{/register}" class="button secondary float-right large-5 medium-5 small-12"><span
+                            class="fa fa-user-plus fa-fw"></span> Registrieren</a>
+                </div>
+            </fieldset>
+        </form>
     </div>
-    <script>
-        $(document).foundation();
-    </script>
+</div>
+<script>
+    $(document).foundation();
+</script>
 </body>
 
 </html>
