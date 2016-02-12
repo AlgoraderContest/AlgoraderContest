@@ -22,11 +22,11 @@ public class ACUserPersistenceHandler implements ACUserPersistenceService {
     private ACUserRepository userRepository;
 
     @Override
-    public Optional<ACUser> saveUser(ACUser ACUser) {
-        if (ACUser.getId() == null) {
-            ACUser.setId(UUID.randomUUID().toString());
+    public Optional<ACUser> saveUser(ACUser user) {
+        if (user.getId() == null) {
+            user.setId(UUID.randomUUID().toString());
         }
-        ACUser savedACUser = userRepository.save(ACUser);
+        ACUser savedACUser = userRepository.save(user);
         return ofNullable(savedACUser);
     }
 

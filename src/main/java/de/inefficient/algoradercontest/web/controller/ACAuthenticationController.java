@@ -20,13 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ACAuthenticationController {
     @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
     private ACUserService userService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView registerAction(ACSession session, @ModelAttribute("user") ACRegisterUserRequest register) {
+    public ModelAndView registerAction(ACSession session, ACRegisterUserRequest register) {
         if (session.isUserLoggedIn()) {
             return ACResponse.redirect("/");
         }

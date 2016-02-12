@@ -69,10 +69,4 @@ public class ACSecurityConfig extends WebSecurityConfigurerAdapter {
         // sha-256
         return new StandardPasswordEncoder();
     }
-
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
 }
