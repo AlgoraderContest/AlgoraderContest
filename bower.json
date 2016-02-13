@@ -1,9 +1,21 @@
 {
   "name": "AlgoraderContest",
+  "version": "0.1",
+  "homepage": "http://algoradercontest.de/",
+  "authors": [
+    "hendrik-w",
+    "samuel-p"
+  ],
   "dependencies": {
     "angular": "~1.4.9",
     "foundation-sites": "~6.1.2",
     "jquery": "~2.1.4",
-    "components-font-awesome": "~4.5.0"
+    "components-font-awesome": "~4.5.0",
+    "sockjs": "~0.3.4",
+    "stomp-websocket": "~2.3.4",
+    "EaselJS": "~0.8.2",
+    "TweenJS": "~0.6.2",
+    "SoundJS": "~0.6.2",
+    "PreloadJS": "~0.6.2"
   }
 }
