@@ -6,9 +6,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by samuel on 13.02.16.
+ *
  * @author samuel
  * @version 0.1
  */
@@ -26,5 +31,9 @@ public class ACGameRepository {
 
     public List<ACGame> getGames() {
         return new ArrayList<>(games.values());
+    }
+
+    public List<ACGame> getOpenGames() {
+        return getGames().stream().filter(game -> game.getState() == ACGameState.OPEN).collect(toList());
     }
 }
