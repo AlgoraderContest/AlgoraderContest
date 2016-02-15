@@ -12,6 +12,80 @@
 
 <body>
 <th:block th:replace="template/global :: require-js"></th:block>
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu="">
+            <li class="menu-text">Algorader Contest</li>
+            <li>
+                <a href="#">One</a>
+                <ul class="menu vertical">
+                    <li><a href="#">One</a></li>
+                    <li><a href="#">Two</a></li>
+                    <li><a href="#">Three</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li class="menu-text">Angemeldet als {{user.displayName}}</li>
+            <li class="has-form">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="button">Abmelden</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-12 columns">
+        <div class="float-right">
+            <input class="search-games" type="text" ng-model="searchGames" placeholder="Suchen..."/>
+        </div>
+        <h2>Offene Spiele</h2>
+        <table id="open-game-list" ng-controller="GameListCtrl">
+            <thead>
+            <tr>
+                <th>
+                    <button ng-click="order('name')">Name</button>
+                    <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
+                </th>
+                <th>
+                    <button ng-click="order('type')">Typ</button>
+                    <span class="sortorder" ng-show="predicate === 'type'" ng-class="{reverse:reverse}"></span>
+                </th>
+                <th>
+                    <button ng-click="order('maxPlayers')">Plätze</button>
+                    <span class="sortorder" ng-show="predicate === 'maxPlayers'" ng-class="{reverse:reverse}"></span>
+                </th>
+                <th>
+                    <button ng-click="order('players')">Freie Plätze</button>
+                    <span class="sortorder" ng-show="predicate === 'players'" ng-class="{reverse:reverse}"></span>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="game in filteredGameList = (gameList | gameListFilter:searchGames)">
+                <td>{{game.name}}</td>
+                <td>{{game.type}}</td>
+                <td>{{game.maxPlayers}}</td>
+                <td>{{game.maxPlayers - game.players}}</td>
+                <td>
+                    <button class="button float-right" type="button">Teilnehmen</button>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr ng-hide="filteredGameList.length">
+                    <td colspan="5">Keine Spiele vorhanden!</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 </body>
 
 </html>

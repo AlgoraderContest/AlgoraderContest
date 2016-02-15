@@ -1,0 +1,13 @@
+table .button {
+    margin: 0;
+}
+.sortorder:after {
+    content: '\25b2';
+}
+.sortorder.reverse:after {
+    content: '\25bc';
+}
+
+.search-games {
+    margin: 8.5px 0;
+}

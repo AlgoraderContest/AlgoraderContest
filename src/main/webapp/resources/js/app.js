@@ -11,6 +11,17 @@ app.run(function ($rootScope, $client) {
     });
 
     $(document).foundation();
+
+    $client.subscribe('/setUser', function (response) {
+        $rootScope.$applyAsync(function () {
+            if (response.successful) {
+                $rootScope.user = response.user;
+            } else {
+                console.log(response.message);
+            }
+        })
+    });
+    $client.send('/getUser');
 });
 app.filter('timeFromMillisFilter', function () {
     return function (value) {
