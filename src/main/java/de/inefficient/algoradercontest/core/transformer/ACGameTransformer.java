@@ -1,6 +1,6 @@
 package de.inefficient.algoradercontest.core.transformer;
 
-import de.inefficient.algoradercontest.game.ACGame;
+import de.inefficient.algoradercontest.kernel.game.api.ACGame;
 import de.inefficient.algoradercontest.web.details.ACGameDetails;
 
 /**

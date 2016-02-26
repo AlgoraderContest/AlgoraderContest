@@ -1,4 +1,7 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map.field;
+
+import de.inefficient.algoradercontest.kernel.base.ACRunnable;
+import de.inefficient.algoradercontest.kernel.map.ACMapElement;
 
 /**
  * Created by hendrik on 15.02.2016.

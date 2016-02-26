@@ -1,4 +1,6 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map.field;
+
+import de.inefficient.algoradercontest.kernel.map.item.ACItem;
 
 /**
  * Created by hendrik on 15.02.2016.
@@ -13,8 +15,7 @@ public class ACPlainField extends ACField {
     }
 
     public void setItem(ACItem item) {
-        item.setX(getX());
-        item.setY(getY());
+        item.setCoordinates(getX(), getY());
         this.item = item;
     }
 

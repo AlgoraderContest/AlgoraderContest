@@ -1,4 +1,4 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.game.api;
 
 /**
  * Created by hendrik on 15.02.2016.

@@ -1,4 +1,4 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map.item;
 
 /**
  * Created by hendrik on 15.02.2016.

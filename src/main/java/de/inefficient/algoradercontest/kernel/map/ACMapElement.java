@@ -1,4 +1,4 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map;
 
 /**
  * Created by hendrik on 15.02.2016.
@@ -17,11 +17,11 @@ public class ACMapElement {
         return y;
     }
 
-    public void setX(int x) {
+    protected void setX(int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    protected void setY(int y) {
         this.y = y;
     }
 }

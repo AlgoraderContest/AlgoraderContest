@@ -1,4 +1,8 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map;
+
+import de.inefficient.algoradercontest.kernel.base.ACRunnable;
+import de.inefficient.algoradercontest.kernel.map.field.ACField;
+import de.inefficient.algoradercontest.kernel.map.field.ACPlainField;
 
 /**
  * Created by hendrik on 15.02.2016.
@@ -6,7 +10,7 @@ package de.inefficient.algoradercontest.game;
  * @version 0.1
  */
 public class ACMap implements ACRunnable {
-    private  ACField fields[][];
+    private ACField fields[][];
 
     public ACMap(int width, int height) {
         fields = new ACField[width][height];

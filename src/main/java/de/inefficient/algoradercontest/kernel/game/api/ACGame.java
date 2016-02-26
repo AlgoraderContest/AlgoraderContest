@@ -1,23 +1,25 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.game.api;
+
+import de.inefficient.algoradercontest.kernel.map.ACMap;
+import de.inefficient.algoradercontest.kernel.base.ACPlayer;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.zip.ZipFile;
 
 /**
  * Created by samuel on 13.02.16.
  * @author samuel
  * @author hendrik
- * @version 0.1
+ * @version 0.2
  */
 public abstract class ACGame {
-    // TODO add map
     private String id;
     private String name;
     private ACGameType type;
-    private ACGameState state;
-    private ACMap map;
     private ACGameOptions options;
+    private ACMap map;
+
+    protected ACGameState state;
 
     public ACGame(String name, ACGameType type, ACGameOptions options) {
         this.id = UUID.randomUUID().toString();

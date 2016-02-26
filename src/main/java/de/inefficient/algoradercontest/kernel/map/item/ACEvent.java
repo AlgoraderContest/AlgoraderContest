@@ -1,4 +1,6 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.map.item;
+
+import de.inefficient.algoradercontest.kernel.base.ACExecutable;
 
 /**
  * Created by hendrik on 15.02.2016.

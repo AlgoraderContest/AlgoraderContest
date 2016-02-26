@@ -1,19 +1,18 @@
-package de.inefficient.algoradercontest.game;
+package de.inefficient.algoradercontest.kernel.game;
 
+import de.inefficient.algoradercontest.kernel.game.api.ACGame;
+import de.inefficient.algoradercontest.kernel.game.api.ACGameState;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
 /**
  * Created by samuel on 13.02.16.
- *
  * @author samuel
  * @version 0.1
  */

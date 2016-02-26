@@ -2,7 +2,7 @@ package de.inefficient.algoradercontest.core.handler;
 
 import de.inefficient.algoradercontest.core.service.ACGameService;
 import de.inefficient.algoradercontest.core.transformer.ACGameTransformer;
-import de.inefficient.algoradercontest.game.ACGameRepository;
+import de.inefficient.algoradercontest.kernel.game.ACGameRepository;
 import de.inefficient.algoradercontest.transport.response.ACGetGameListResponse;
 import de.inefficient.algoradercontest.transport.response.ACResponse;
 import de.inefficient.algoradercontest.web.details.ACGameDetails;
