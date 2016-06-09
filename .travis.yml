@@ -24,8 +24,8 @@ notifications:
     - hendrik@algoradercontest.de
     - samuel@algoradercontest.de
 
-#services:
-#  - mongodb
+services:
+  - mongodb
 
 #before_install:
 
