@@ -5,6 +5,7 @@ import de.inefficient.algoradercontest.server.persistence.handler.ACUserPersiste
 import de.inefficient.algoradercontest.test.persistence.config.ACTestMongoConfig;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -33,6 +34,11 @@ public class ACMongoIntegrationTest {
     @After
     public void tearDown() throws Exception {
         dropAll();
+    }
+
+    @Test
+    public void emptyTestToPreventFail() {
+        // Test to prevent fail of this class
     }
 
     private void testSetup() {
