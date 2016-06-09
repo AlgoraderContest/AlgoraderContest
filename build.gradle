@@ -1,28 +1,3 @@
-group "de.inefficient.algoradercontest"
-version "0.1-SNAPSHOT"
-
-apply plugin: "java"
-apply plugin: "spring-boot"
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-sourceSets {
-    main {
-        java {
-            srcDir "src/main/java"
-        }
-        resources {
-            srcDir "src/main/resources"
-            srcDir "src/main/webapp"
-        }
-    }
-}
-
 buildscript {
     repositories {
         mavenCentral()
@@ -34,56 +9,60 @@ buildscript {
     }
 }
 
-dependencies {
-    compile "javax.persistence:persistence-api:1.0.2"
+allprojects {
+    apply plugin: "idea"
 
-    compile "org.apache.logging.log4j:log4j-core:2.4"
-
-    compile "org.apache.commons:commons-lang3:3.4"
-
-    compile "org.springframework.boot:spring-boot-starter-web:1.3.2.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf:1.3.2.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-websocket:1.3.2.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb:1.3.2.RELEASE"
-    compile "org.springframework.boot:spring-boot-devtools:1.3.2.RELEASE"
-
-    compile "org.springframework:spring-web:4.2.4.RELEASE"
-    compile "org.springframework:spring-context:4.2.4.RELEASE"
-    compile "org.springframework:spring-messaging:4.2.4.RELEASE"
-    compile "org.springframework:spring-websocket:4.2.4.RELEASE"
-
-    compile "org.springframework.security:spring-security-web:4.0.3.RELEASE"
-    compile "org.springframework.security:spring-security-config:4.0.3.RELEASE"
-    compile "org.springframework.security:spring-security-messaging:4.0.3.RELEASE"
-    compile "org.springframework.security:spring-security-data:4.0.3.RELEASE"
-
-    compile "org.springframework.session:spring-session:1.0.2.RELEASE"
-
-    compile "org.springframework.data:spring-data-jpa:1.9.2.RELEASE"
-    compile "org.springframework.data:spring-data-mongodb:1.8.2.RELEASE"
-
-    compile "org.apache.tomcat.embed:tomcat-embed-websocket:8.0.30"
-
-    testCompile "junit:junit:4.12"
-    testCompile "org.springframework:spring-test:4.1.7.RELEASE"
-    testCompile "org.springframework.security:spring-security-test:4.0.2.RELEASE"
-    testCompile "org.mockito:mockito-core:1.10.19"
-}
-
-jar {
-    baseName = project.name
-    version =  project.version
-    manifest {
-        attributes "Main-Class": "de.inefficient.algoradercontest.AlgoraderContestApplication"
+    repositories {
+        mavenCentral()
     }
 }
 
-task buildAll(type: Jar) {
-    baseName = project.name + "-all"
-    version =  project.version
-    manifest {
-        attributes "Main-Class": "de.inefficient.algoradercontest.AlgoraderContestApplication"
+project(":server") {
+    apply plugin: "java"
+    apply plugin: "spring-boot"
+
+    dependencies {
+        compile project(":game")
+
+        compile "javax.persistence:persistence-api:1.0.2"
+
+        compile "org.apache.logging.log4j:log4j-core:2.4"
+
+        compile "org.apache.commons:commons-lang3:3.4"
+
+        compile "org.springframework.boot:spring-boot-starter-web:1.3.2.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-thymeleaf:1.3.2.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-websocket:1.3.2.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-data-mongodb:1.3.2.RELEASE"
+        compile "org.springframework.boot:spring-boot-devtools:1.3.2.RELEASE"
+
+        compile "org.springframework:spring-web:4.2.4.RELEASE"
+        compile "org.springframework:spring-context:4.2.4.RELEASE"
+        compile "org.springframework:spring-messaging:4.2.4.RELEASE"
+        compile "org.springframework:spring-websocket:4.2.4.RELEASE"
+
+        compile "org.springframework.security:spring-security-web:4.0.3.RELEASE"
+        compile "org.springframework.security:spring-security-config:4.0.3.RELEASE"
+        compile "org.springframework.security:spring-security-messaging:4.0.3.RELEASE"
+        compile "org.springframework.security:spring-security-data:4.0.3.RELEASE"
+
+        compile "org.springframework.session:spring-session:1.0.2.RELEASE"
+
+        compile "org.springframework.data:spring-data-jpa:1.9.2.RELEASE"
+        compile "org.springframework.data:spring-data-mongodb:1.8.2.RELEASE"
+
+        compile "org.apache.tomcat.embed:tomcat-embed-websocket:8.0.30"
+
+        testCompile "junit:junit:4.12"
+        testCompile "org.springframework:spring-test:4.1.7.RELEASE"
+        testCompile "org.springframework.security:spring-security-test:4.0.2.RELEASE"
+        testCompile "org.mockito:mockito-core:1.10.19"
     }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+}
+
+project(":game") {
+    apply plugin: "java"
+
+    dependencies {
+    }
 }
