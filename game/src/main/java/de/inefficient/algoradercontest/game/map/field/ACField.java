@@ -1,5 +1,6 @@
 package de.inefficient.algoradercontest.game.map.field;
 
+import de.inefficient.algoradercontest.game.algorader.ACAlgorader;
 import de.inefficient.algoradercontest.game.base.ACRunnable;
 import de.inefficient.algoradercontest.game.map.ACMapElement;
 
@@ -16,5 +17,9 @@ public abstract class ACField extends ACMapElement implements ACRunnable {
 
     @Override
     public void run() {
+    }
+
+    public boolean enter(ACAlgorader algorader) {
+        return true;
     }
 }
