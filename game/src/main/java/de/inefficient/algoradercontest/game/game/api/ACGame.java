@@ -22,8 +22,8 @@ public abstract class ACGame {
     protected ACGameState state;
 
     public ACGame(String name, ACGameType type, ACMap map, ACGameOptions options) {
-        if (!map.getOptions().isGameTypeSupported(type)) {
-
+        if (!map.getGameType().equals(type)) {
+            throw new IllegalArgumentException("Invalid map!");
         }
         this.id = UUID.randomUUID().toString();
         this.state = ACGameState.OPEN;
